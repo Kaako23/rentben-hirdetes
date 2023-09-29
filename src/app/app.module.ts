@@ -3,16 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { AdvertisementPageComponent } from './advertisement-page/advertisement-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MockHttpCallInterceptor } from 'src/mock/mock.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistrationPageComponent,
+    AdvertisementPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: MockHttpCallInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
