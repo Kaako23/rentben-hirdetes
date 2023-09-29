@@ -1,8 +1,9 @@
-import { AuthenticationService } from '../service/authentication.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from "../../mock/models/user.model";
+import { AuthenticationService } from 'src/app/service/authentication.service';
+import { User } from 'src/mock/models/user.model';
 
 @Component({
   selector: 'app-login-page',
@@ -13,10 +14,6 @@ export class LoginPageComponent implements OnInit {
   public form!: FormGroup;
   public loading = false;
   public submitted = false;
-  private alertOptions = {
-    autoClose: false,
-    keepAfterRouteChange: false,
-  };
 
   constructor(
     private formBuilder: FormBuilder,

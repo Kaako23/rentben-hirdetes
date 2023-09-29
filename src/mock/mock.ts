@@ -1,6 +1,6 @@
 import { UserMockDB } from "./data/user.mock.db";
 import { User } from "./models/user.model";
-import { AdvertisementMockDb } from "./data/advertisement.mock.db";
+import { AdvertisementMockDB } from "./data/advertisement.mock.db";
 import { Advertisement } from "./models/advertisement.model";
 
 export class Mock {
@@ -9,7 +9,7 @@ export class Mock {
 
     constructor() {
         this.userList = UserMockDB.user;
-        this.advertisementList = AdvertisementMockDb.advertisementList;
+        this.advertisementList = AdvertisementMockDB.advertisementList;
     }
 
     public getUserList() {
