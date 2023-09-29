@@ -5,6 +5,7 @@ import { AdvertisementPageComponent } from './advertisement-page/advertisement-p
 import { LoginPageComponent } from './login-page/login-page.component';
 
 const routes: Routes = [
+    { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
     { path: 'registration', component: RegistrationPageComponent },
     { path: 'login', component: LoginPageComponent },
     { path: '**', component: AdvertisementPageComponent }

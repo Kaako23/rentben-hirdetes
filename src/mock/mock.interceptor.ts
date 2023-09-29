@@ -24,6 +24,14 @@ export class MockHttpCallInterceptor implements HttpInterceptor {
                 body: this.mock.getUserList()
               }),
             );
+          } else if (request.url.includes('/getAdvertisementList')) {
+            return of(
+              new HttpResponse({
+                url: '',
+                status: StatusCodes.OK,
+                body: this.mock.getAdvertisementList()
+              }),
+            );
           }
           return next.handle(request);
         }),

@@ -1,8 +1,8 @@
-import { AuthenticationService } from './../service/authentication.service';
+import { AuthenticationService } from '../service/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserDto } from "../../mock/models/user.model";
+import { User } from "../../mock/models/user.model";
 
 @Component({
   selector: 'app-login-page',
@@ -42,12 +42,12 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.getUserList().subscribe((userDtoList: UserDto[]) => {
+    this.authenticationService.getUserList().subscribe((userList: User[]) => {
       let userExists = false;
-      userDtoList.forEach((userDto: UserDto) => {
-        if (userDto.email === this.formControls['email'].value && userDto.password === this.formControls['password'].value) {
+      userList.forEach((user: User) => {
+        if (user.email === this.formControls['email'].value && user.password === this.formControls['password'].value) {
           userExists = true;
-          localStorage.setItem('name', userDto.name);
+          localStorage.setItem('name', user.name);
           this.router.navigate(['/advertisement']);
         }
       });
