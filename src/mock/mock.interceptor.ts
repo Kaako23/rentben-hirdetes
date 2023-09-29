@@ -7,10 +7,9 @@ import { StatusCodes } from 'http-status-codes';
 @Injectable()
 export class MockHttpCallInterceptor implements HttpInterceptor {
 
-    private mock!: Mock;
-
-    constructor(){
-        
+    private mock: Mock;
+    constructor() {
+      this.mock = new Mock();
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -28,10 +27,7 @@ export class MockHttpCallInterceptor implements HttpInterceptor {
           }
           return next.handle(request);
         }),
-      )
-      .pipe(materialize())
-      .pipe(delay(2500))
-      .pipe(dematerialize());
+      );
     }
 
 }

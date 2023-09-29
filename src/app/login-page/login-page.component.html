@@ -6,13 +6,13 @@
                 <div class="mb-3">
                     <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['email'].errors }" />
                     <div *ngIf="submitted && formControls['email'].errors" class="invalid-feedback">
-                        <div *ngIf="formControls['email'].errors['required']">Email is required</div>
+                        <div *ngIf="formControls['email'].errors?.['required']">Email is required</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['password'].errors }" />
                     <div *ngIf="submitted && formControls['password'].errors" class="invalid-feedback">
-                        <div *ngIf="formControls['password'].errors['required']">Password is required</div>
+                        <div *ngIf="formControls['password'].errors?.['required']">Password is required</div>
                     </div>
                 </div>
                 <div class="buttons">

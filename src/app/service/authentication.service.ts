@@ -6,11 +6,11 @@ import { UserDto } from "src/mock/models/user.model";
 @Injectable({
     providedIn: 'root'
 })
-export class AuthenticationService{
+export class AuthenticationService {
     constructor(private httpClient: HttpClient){
-        
+
     }
-    public getUserList(): Observable<UserDto> {
-        return this.httpClient.get<UserDto>('/getUserList');
+    public getUserList(): Observable<UserDto[]> {
+        return this.httpClient.get<UserDto[]>('/getUserList');
     }
 }
