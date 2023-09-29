@@ -7,7 +7,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { AdvertisementPageComponent } from './advertisement-page/advertisement-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MockHttpCallInterceptor } from 'src/mock/mock.interceptor';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { MockHttpCallInterceptor } from 'src/mock/mock.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

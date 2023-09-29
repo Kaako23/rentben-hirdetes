@@ -1,0 +1,108 @@
+.card{
+    padding: 110px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Tahoma;
+    background-color: aquamarine;
+    border-radius: 9% 30% 17%;
+    border-style: outset;
+    border-color: aquamarine;
+}
+
+.card-header{
+    text-align: center;
+    font-size: 40px;
+    margin: 0px 0px 65px;
+}
+
+::placeholder{
+    text-align: center;
+}
+
+.buttons{
+    text-align: center;
+    margin: 10px;
+}
+
+.form-control {
+    width: 77%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fee6e3;
+  }
+
+.mb-3{
+    text-align: center;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.btn-browse{
+    margin: 20px auto;
+    background-color: #5EC4A2;
+}
+
+button {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 20px;
+}
+
+button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+button:hover:after {
+  transform: translate(0, 0);
+}
+
+button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+    button {
+    padding: 0 40px;
+  }
+}

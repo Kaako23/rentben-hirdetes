@@ -17,7 +17,7 @@ export class MockHttpCallInterceptor implements HttpInterceptor {
         return of(null)
       .pipe(
         mergeMap(() => {
-          if (request.url.includes('')) {
+          if (request.url.includes('/getUserList')) {
             return of(
               new HttpResponse({
                 url: '',

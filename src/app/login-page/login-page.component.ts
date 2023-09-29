@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../service/authentication.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +15,9 @@ export class LoginPageComponent {
 
     constructor(
         private formBuilder: FormBuilder,
-        private router: Router
+        private router: Router,
+        private authenticationService: AuthenticationService,
+
     ) { }
 
     ngOnInit() {
@@ -34,6 +37,10 @@ export class LoginPageComponent {
         if (this.form.invalid) {
             return;
         }
+
+        this.authenticationService.getUserList().subscribe((result) => {
+          console.log(result);
+        })
 
         this.loading = true;
 

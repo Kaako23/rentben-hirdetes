@@ -3,44 +3,40 @@
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['name'].errors }" />
+                <input type="text" placeholder="Name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['name'].errors }" />
                 <div *ngIf="submitted && formControls['name'].errors" class="invalid-feedback">
                     <div *ngIf="formControls['name'].errors['required']">Name is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Phone</label>
-                <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['phone'].errors }" />
+                <input type="text" placeholder="Phone" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['phone'].errors }" />
                 <div *ngIf="submitted && formControls['phone'].errors" class="invalid-feedback">
                     <div *ngIf="formControls['phone'].errors['required']">Phone is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['email'].errors }" />
+                <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['email'].errors }" />
                 <div *ngIf="submitted && formControls['email'].errors" class="invalid-feedback">
                     <div *ngIf="formControls['email'].errors['required']">Email is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['password'].errors }" />
+                <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['password'].errors }" />
                 <div *ngIf="submitted && formControls['password'].errors" class="invalid-feedback">
                     <div *ngIf="formControls['password'].errors['required']">Password is required</div>
                     <div *ngIf="formControls['password'].errors['minlength']">Password must be at least 6 characters</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Address</label>
-                <input type="text" class="form-control"/>
+                <input type="text" placeholder="Address" class="form-control"/>
             </div>
-            <div>
-                <button [disabled]="loading" class="btn btn-primary">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
-                    Register
+            <div class="buttons">
+                <button [disabled]="loading" class="btn btn-primary" style="display: inline-block;">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                  Register
                 </button>
-                <a routerLink="../login" class="btn btn-link">Cancel</a>
+                <button routerLink="../login" class="btn btn-primary" style="display: inline-block;">Login</button>
+                <button routerLink="../advertisement" class="btn-browse">Advertisements</button>
             </div>
         </form>
     </div>
