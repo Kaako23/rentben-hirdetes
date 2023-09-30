@@ -1,0 +1,22 @@
+.plates {
+    width: 250px;
+    display: inline-block;
+    padding: 20px;
+    border: solid 3px rgb(48, 100, 83);
+    border-radius: 15px;
+    background-color: aquamarine;
+    font-family: Tahoma;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.phone {
+    text-align: right;
+}
+
+.description {
+    text-align: center;
+}

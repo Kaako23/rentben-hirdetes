@@ -1,4 +1,12 @@
 <p>Üdvözöllek {{name}}!</p>
-<div *ngFor="let advertisement of advertisementList">
-    <app-advertisement-card [advertisement]="advertisement"></app-advertisement-card>
+<div class="container">
+    <div class="cards" *ngFor="let advertisement of advertisementList">
+        <app-advertisement-card [advertisement]="advertisement"></app-advertisement-card>
+    </div>
+</div>
+
+<div class="buttons">
+    <button routerLink="../add-advertisement" class="btn-add">New Advertisement</button>
+    <button routerLink="../login" class="btn-add">Login</button>
+    <button routerLink="../registration" class="btn-add">Register</button>
 </div>

@@ -12,7 +12,7 @@ export class AdvertisementMockDB {
             name: 'Teszt Elek', 
             phone: '+06202627777', 
             title: 'Hírdetés2', 
-            description: 'Valami leírás'
-        }
+            description: 'Valami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírás'
+        },
     ];
 }

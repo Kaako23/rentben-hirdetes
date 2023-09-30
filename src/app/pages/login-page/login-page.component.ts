@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -22,15 +21,15 @@ export class LoginPageComponent implements OnInit {
   ) {
   }
 
+  get formControls() {
+    return this.form.controls;
+  }
+
   ngOnInit() {
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
-  }
-
-  get formControls() {
-    return this.form.controls;
   }
 
   onSubmit() {

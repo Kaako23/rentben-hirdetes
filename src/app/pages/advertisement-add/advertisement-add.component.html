@@ -1,1 +1,25 @@
-<p>advertisement-add works!</p>
+<div class="card">
+    <h4 class="card-header">Add an Advertisement</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <input type="text" placeholder="Title" formControlName="title" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <input type="text" placeholder="Name" formControlName="name" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <input type="text" placeholder="Phone" formControlName="phone" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <input type="text" placeholder="Description" formControlName="description" class="form-control" />
+            </div>
+            <div class="buttons">
+                <button class="btn btn-primary" style="display: inline-block;">
+                  Add Advertisement
+                </button>
+                <button routerLink="../registration" class="btn btn-primary" style="display: inline-block;">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
