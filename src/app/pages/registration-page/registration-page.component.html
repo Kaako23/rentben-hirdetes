@@ -5,26 +5,26 @@
             <div class="mb-3">
                 <input type="text" placeholder="Name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['name'].errors }" />
                 <div *ngIf="submitted && formControls['name'].errors" class="invalid-feedback">
-                    <div *ngIf="formControls['name'].errors['required']">Name is required</div>
+                    <div *ngIf="formControls['name'].errors?.['required']">Name is required</div>
                 </div>
             </div>
             <div class="mb-3">
                 <input type="text" placeholder="Phone" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['phone'].errors }" />
                 <div *ngIf="submitted && formControls['phone'].errors" class="invalid-feedback">
-                    <div *ngIf="formControls['phone'].errors['required']">Phone is required</div>
+                    <div *ngIf="formControls['phone'].errors?.['required']">Phone is required</div>
                 </div>
             </div>
             <div class="mb-3">
                 <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['email'].errors }" />
                 <div *ngIf="submitted && formControls['email'].errors" class="invalid-feedback">
-                    <div *ngIf="formControls['email'].errors['required']">Email is required</div>
+                    <div *ngIf="formControls['email'].errors?.['required']">Email is required</div>
                 </div>
             </div>
             <div class="mb-3">
                 <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['password'].errors }" />
                 <div *ngIf="submitted && formControls['password'].errors" class="invalid-feedback">
-                    <div *ngIf="formControls['password'].errors['required']">Password is required</div>
-                    <div *ngIf="formControls['password'].errors['minlength']">Password must be at least 6 characters</div>
+                    <div *ngIf="formControls['password'].errors?.['required']">Password is required</div>
+                    <div *ngIf="formControls['password'].errors?.['minlength']">Password must be at least 6 characters</div>
                 </div>
             </div>
             <div class="mb-3">

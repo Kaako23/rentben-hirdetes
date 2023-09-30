@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Advertisement } from 'src/mock/models/advertisement.model';
+import {AdvertisementService} from "../../service/advertisement.service";
 
 @Component({
   selector: 'app-advertisement-card',
@@ -8,4 +9,14 @@ import { Advertisement } from 'src/mock/models/advertisement.model';
 })
 export class AdvertisementCardComponent {
   @Input() advertisement!: Advertisement;
+  @Input() index!: number;
+
+  constructor(
+    private advertisementService: AdvertisementService,
+  ) {
+  }
+
+  deleteAdvertisement(i: number): void {
+    this.advertisementService.removeAdvertisement(i);
+  }
 }

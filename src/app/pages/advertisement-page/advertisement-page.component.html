@@ -1,7 +1,7 @@
-<p>Üdvözöllek {{name}}!</p>
+<p *ngIf="name">Üdvözöllek {{name}}!</p>
 <div class="container">
-    <div class="cards" *ngFor="let advertisement of advertisementList">
-        <app-advertisement-card [advertisement]="advertisement"></app-advertisement-card>
+    <div class="cards" *ngFor="let advertisement of advertisementList; let i = index">
+        <app-advertisement-card [advertisement]="advertisement" [index]="i"></app-advertisement-card>
     </div>
 </div>
 

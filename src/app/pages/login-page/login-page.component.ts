@@ -40,10 +40,11 @@ export class LoginPageComponent implements OnInit {
     this.loading = true;
     this.authenticationService.getUserList().subscribe((userList: User[]) => {
       let userExists = false;
+      this.authenticationService.setUserList(userList);
       userList.forEach((user: User) => {
         if (user.email === this.formControls['email'].value && user.password === this.formControls['password'].value) {
           userExists = true;
-          localStorage.setItem('name', user.name);
+          this.authenticationService.setCurrentUser(user);
           this.router.navigate(['/advertisement']);
         }
       });

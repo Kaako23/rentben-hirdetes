@@ -1,9 +1,9 @@
-.container { 
+.container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
-    align-items: flex-start; 
-    overflow-x: auto; 
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto;
 }
 
 .cards {
@@ -19,8 +19,8 @@
 .btn-add {
     width: 250px;
     height: 70px;
-    padding: 20px;
     margin: 15px;
+    padding: 1rem 1.6rem;
     background-color: aquamarine;
     border: 3px solid rgb(48, 100, 83);
     border-radius: 1.5rem;
@@ -32,7 +32,6 @@
     font-size: 1.1rem;
     font-weight: 600;
     line-height: 1;
-    padding: 1rem 1.6rem;
     text-align: center;
     text-decoration: none #0d172a solid;
     text-decoration-thickness: auto;
