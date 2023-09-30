@@ -20,3 +20,10 @@
 .description {
     text-align: center;
 }
+
+.title,
+.name,
+.phone,
+.description {
+    padding: 5px;
+}
