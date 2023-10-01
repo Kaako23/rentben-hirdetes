@@ -34,12 +34,13 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.invalid) {
-      return;
-    }
-
+    this.submitted = true;
     this.loading = true;
 
+    if (this.form.invalid) {
+      this.loading = false;
+      return;
+    }
     if (!this.authenticationService.getUpdatedUserList().length) {
       this.authenticationService.getUserList().subscribe((userList: User[]) => {
         this.authenticationService.setUserList(userList);

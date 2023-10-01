@@ -36,10 +36,13 @@ export class RegistrationPageComponent {
   }
 
   onSubmit() {
+    this.submitted = true;
+    this.loading = true;
+
     if (this.form.invalid) {
+      this.loading = false;
       return;
     }
-    this.submitted = true;
 
     let user = {
       name: this.formControls['name'].value,
@@ -58,6 +61,7 @@ export class RegistrationPageComponent {
 
     this.authenticationService.setUser(user);
     this.authenticationService.setCurrentUser(user);
+    this.loading = false;
     alert('Registration successful.');
     this.router.navigate(['/advertisement']);
   }
