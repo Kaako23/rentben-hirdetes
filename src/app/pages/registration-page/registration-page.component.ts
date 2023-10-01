@@ -1,4 +1,4 @@
-import { AuthenticationService } from './../../service/authentication.service';
+import { AuthenticationService } from '../../service/authentication.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,23 +15,24 @@ export class RegistrationPageComponent {
   public submitted = false;
 
   constructor(
-      private formBuilder: FormBuilder,
-      private router: Router,
-      private authenticationService: AuthenticationService
-  ) { }
-
-  ngOnInit() {
-      this.form = this.formBuilder.group({
-          name: ['', Validators.required],
-          phone: ['', Validators.required],
-          email: ['', Validators.required],
-          password: ['', Validators.required],
-          address: ['']
-      });
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
   }
 
-  get formControls() { 
-    return this.form.controls; 
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      address: ['']
+    });
+  }
+
+  get formControls() {
+    return this.form.controls;
   }
 
   onSubmit() {
@@ -40,7 +41,6 @@ export class RegistrationPageComponent {
     }
     this.submitted = true;
 
-    console.log(this.formControls);
     let user = {
       name: this.formControls['name'].value,
       phone: this.formControls['phone'].value,
@@ -50,9 +50,15 @@ export class RegistrationPageComponent {
       role: UserRole.User,
     } as User;
 
-  this.authenticationService.setUser(user);
-  this.authenticationService.setCurrentUser(user);
-  alert('Registration successful.');
-  this.router.navigate(['/advertisement']);
+    if (!this.authenticationService.getUpdatedUserList().length) {
+      this.authenticationService.getUserList().subscribe((userList: User[]) => {
+        this.authenticationService.setUserList(userList);
+      });
+    }
+
+    this.authenticationService.setUser(user);
+    this.authenticationService.setCurrentUser(user);
+    alert('Registration successful.');
+    this.router.navigate(['/advertisement']);
   }
 }

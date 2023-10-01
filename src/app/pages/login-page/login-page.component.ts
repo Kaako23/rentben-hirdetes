@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/service/authentication.service';
-import { User } from 'src/mock/models/user.model';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthenticationService} from 'src/app/service/authentication.service';
+import {User} from 'src/mock/models/user.model';
+import {Advertisement} from "../../../mock/models/advertisement.model";
 
 @Component({
   selector: 'app-login-page',
@@ -38,24 +39,38 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.getUserList().subscribe((userList: User[]) => {
-      let userExists = false;
-      this.authenticationService.setUserList(userList);
-      userList.forEach((user: User) => {
-        if (user.email === this.formControls['email'].value && user.password === this.formControls['password'].value) {
-          userExists = true;
-          this.authenticationService.setCurrentUser(user);
-          this.router.navigate(['/advertisement']);
-        }
+
+    if (!this.authenticationService.getUpdatedUserList().length) {
+      this.authenticationService.getUserList().subscribe((userList: User[]) => {
+        this.authenticationService.setUserList(userList);
+        this.loginValidation(userList);
+      }, (err) => {
+        console.error('Something went wrong during the login phase..', err);
+      }, () => {
+        this.loading = false;
       });
 
-      if (!userExists) {
-        alert('Invalid Email or Password! Please try it again!')
-      }
-    }, (err) => {
-      console.error('Something went wrong during the login phase..', err);
-    }, () => {
-      this.loading = false;
-    });
+    } else {
+      let userList: User[] = this.authenticationService.getUpdatedUserList();
+      this.loginValidation(userList);
+    }
   }
+
+  loginValidation(userList: User[]): void {
+    let userExists = false;
+    userList.forEach((user: User) => {
+      if (user.email === this.formControls['email'].value && user.password === this.formControls['password'].value) {
+        userExists = true;
+        this.authenticationService.setCurrentUser(user);
+        this.router.navigate(['/advertisement']);
+      }
+    });
+
+    if (!userExists) {
+      alert('Invalid Email or Password! Please try it again!')
+    }
+
+    this.loading = false;
+  }
+
 }

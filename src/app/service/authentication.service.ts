@@ -45,10 +45,4 @@ export class AuthenticationService {
         userList.push(user);
         this.userList.next(userList);
     }
-
-    public removeUser(index: number): void {
-        let userList: User[] = [...this.userList.value];
-        userList.splice(index, 1);
-        this.userList.next(userList);
-    }
 }
