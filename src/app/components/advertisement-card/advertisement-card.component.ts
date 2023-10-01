@@ -13,8 +13,11 @@ export class AdvertisementCardComponent {
 
   constructor(
     private advertisementService: AdvertisementService,
+
   ) {
   }
+
+  
 
   deleteAdvertisement(i: number): void {
     this.advertisementService.removeAdvertisement(i);

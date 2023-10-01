@@ -29,6 +29,10 @@ export class AdvertisementPageComponent implements OnInit, OnDestroy {
         } else {
             this.advertisementList = this.advertisementService.getUpdatedAdvertisementList();
         }
+
+      this.advertisementService.onAdvertisementListChanged.subscribe((advertisement: Advertisement[]) => {
+          this.advertisementList = this.advertisementService.getUpdatedAdvertisementList();
+      });
     }
 
     ngOnDestroy() {

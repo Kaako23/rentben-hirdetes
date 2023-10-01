@@ -1,13 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, map } from "rxjs";
 import { Advertisement } from "src/mock/models/advertisement.model";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AdvertisementService {
-
     private advertisementList: BehaviorSubject<Advertisement[]>;
     public onAdvertisementListChanged: Observable<Advertisement[]>;
 
@@ -39,4 +38,5 @@ export class AdvertisementService {
         advertisementList.splice(index, 1);
         this.advertisementList.next(advertisementList);
     }
+
 }
