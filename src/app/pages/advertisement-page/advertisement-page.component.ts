@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdvertisementService } from 'src/app/service/advertisement.service';
 import { Advertisement } from 'src/mock/models/advertisement.model';
 import { AuthenticationService } from "../../service/authentication.service";
@@ -8,7 +8,7 @@ import { AuthenticationService } from "../../service/authentication.service";
     templateUrl: './advertisement-page.component.html',
     styleUrls: ['./advertisement-page.component.css']
 })
-export class AdvertisementPageComponent implements OnInit, OnDestroy {
+export class AdvertisementPageComponent implements OnInit {
 
     public name: string;
     public advertisementList!: Advertisement[];
@@ -34,9 +34,4 @@ export class AdvertisementPageComponent implements OnInit, OnDestroy {
           this.advertisementList = this.advertisementService.getUpdatedAdvertisementList();
       });
     }
-
-    ngOnDestroy() {
-        localStorage.removeItem('name');
-    }
-
 }

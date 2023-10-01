@@ -38,5 +38,4 @@ export class AdvertisementService {
         advertisementList.splice(index, 1);
         this.advertisementList.next(advertisementList);
     }
-
 }
