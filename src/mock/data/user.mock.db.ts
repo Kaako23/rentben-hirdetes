@@ -8,7 +8,7 @@ export class UserMockDB {
             email: 'pelda@gmail.com',
             password: 'valamijelszo',
             address:'',
-            role: UserRole.Name
+            role: UserRole.User
         },
         {
             name: 'Gipsz Jakab',

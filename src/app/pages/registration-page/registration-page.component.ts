@@ -1,6 +1,8 @@
+import { AuthenticationService } from './../../service/authentication.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User, UserRole } from 'src/mock/models/user.model';
 
 @Component({
   selector: 'app-registration-page',
@@ -14,7 +16,8 @@ export class RegistrationPageComponent {
 
   constructor(
       private formBuilder: FormBuilder,
-      private router: Router
+      private router: Router,
+      private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -22,7 +25,8 @@ export class RegistrationPageComponent {
           name: ['', Validators.required],
           phone: ['', Validators.required],
           email: ['', Validators.required],
-          password: ['', Validators.required]
+          password: ['', Validators.required],
+          address: ['']
       });
   }
 
@@ -31,12 +35,24 @@ export class RegistrationPageComponent {
   }
 
   onSubmit() {
-      this.submitted = true;
-      
-      if (this.form.invalid) {
-          return;
-      }
+    if (this.form.invalid) {
+      return;
+    }
+    this.submitted = true;
 
-      this.router.navigate(['/advertisement']);
+    console.log(this.formControls);
+    let user = {
+      name: this.formControls['name'].value,
+      phone: this.formControls['phone'].value,
+      email: this.formControls['email'].value,
+      password: this.formControls['password'].value,
+      address: this.formControls['address'].value,
+      role: UserRole.User,
+    } as User;
+
+  this.authenticationService.setUser(user);
+  this.authenticationService.setCurrentUser(user);
+  alert('Registration successful.');
+  this.router.navigate(['/advertisement']);
   }
 }

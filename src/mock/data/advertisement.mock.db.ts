@@ -5,14 +5,14 @@ export class AdvertisementMockDB {
         {
             name: 'Gipsz Jakab', 
             phone: '+06201111111', 
-            title: 'Hírdetés1', 
-            description: 'Valami leírás'
+            title: 'OLED TV', 
+            description: 'OLED TV eladó, ár megbeszélés szerint.'
         },
         {
             name: 'Teszt Elek', 
             phone: '+06202627777', 
-            title: 'Hírdetés2', 
-            description: 'Valami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírásValami leírás'
+            title: 'Téli kabát', 
+            description: 'XL-es méretben eladó szőrmekabát. Cimke rajta, ezért új állapotban van.'
         },
     ];
 }
